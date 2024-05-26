@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h2{
+            color: black;
+        }
+        
+        .login-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .login-container input[type="submit"] {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        p{
+            color: red;
+            padding: top 0;
+        }
+
+        .success-message, .error-message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .success-message {
+            background-color: #4c74af;
+            color: #ffffff;
+        }
+
+        .error-message {
+            background-color: #f44336;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>NYCTA MARKSHEET</h2>
+        <p>**For Students before 2018</p>
+        <form id="loginForm" onsubmit="checkCredentials(event)" action="nycta-trademark-logo.png">
+            <input type="text" id="certificateNumber" name="certificateNumber" placeholder="Certificate Number" required><br>
+            <input type="text" id="name" name="name" placeholder="Name" required><br>
+            <input type="submit" value="Login">
+        </form>
+     <a href="MARKSHEET RUPAM.pdf"> <div id="successMessage" class="success-message">CLICK TO DOWNLOAD MARKSHEET</div></a>
+        <div id="errorMessage" class="error-message">Invalid credentials! Please try again.</div>
+    </div>
+
+    <script>
+        function checkCredentials(event) {
+            event.preventDefault(); // Prevent form submission
+            var certificateNumber = document.getElementById("certificateNumber").value;
+            var name = document.getElementById("name").value;
+
+            if (certificateNumber === "NYCTA/SAC/ADIIT/1701" && name === "RUPAM KUMARI") {
+                document.getElementById("successMessage").style.display = "block";
+                document.getElementById("errorMessage").style.display = "none";
+            } else {
+                document.getElementById("successMessage").style.display = "none";
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
